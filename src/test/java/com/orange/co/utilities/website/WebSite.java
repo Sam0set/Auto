@@ -1,0 +1,19 @@
+package com.orange.co.utilities.website;
+
+import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+
+public class WebSite {
+
+    @Steps(shared = true)
+    PageObject Orange;
+
+    @Step("Navegar a la url")
+    public void navigateTo(String url){
+        Orange.setDefaultBaseUrl(url);
+        Orange.open();
+
+    }
+
+}
