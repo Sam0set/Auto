@@ -1,4 +1,4 @@
-package co.com.orange.runners;
+package runners;
 
 
 import io.cucumber.junit.CucumberOptions;
@@ -13,4 +13,5 @@ import org.junit.runner.RunWith;
         tags = "@Prueba"
 )
 public class Runner {
+
 }

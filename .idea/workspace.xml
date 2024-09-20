@@ -5,18 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f8d03f-1c31-4191-97d1-1c54e1e9e872" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_errorprone_error_prone_annotations_2_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jhlabs_filters_2_0_235.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_thoughtworks_xstream_xstream_1_4_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_serenity_bdd_serenity_report_resources_3_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_core5_httpcore5_5_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_pdfbox_pdfbox_2_0_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_assertj_assertj_core_3_22_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/orange/hook/OpenWeb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/orange/utils/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/orange/utils/Time.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/com/orange/stepdefinitions/hook/Hook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25f1bbdc8dba7ca4a4b90251f1ef69621b24a28c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/5/25f1bbdc8dba7ca4a4b90251f1ef69621b24a28c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/com/orange/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/com/orange/stepdefinitions/LoginStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/com/orange/stepdefinitions/LoginStep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/Runner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/definitions/LoginDef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/pages/login/LoginPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/pages/validations/ValidationPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/steps/login/LoginSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/steps/validations/ValidationStep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/orange/co/utilities/website/WebSite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/orange.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/orange.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/01f5288b80adbd3af52a8ed68a4a616d3164f750229f80da1ef344382d948835.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/01f5288b80adbd3af52a8ed68a4a616d3164f750229f80da1ef344382d948835.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/01f5288b80adbd3af52a8ed68a4a616d3164f750229f80da1ef344382d948835.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/01f5288b80adbd3af52a8ed68a4a616d3164f750229f80da1ef344382d948835.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/05f7c3f426a2c2ffbb208bcd1bb6fc2de8a388ce092a4307990f8e794fc20519.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/05f7c3f426a2c2ffbb208bcd1bb6fc2de8a388ce092a4307990f8e794fc20519.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/12d84771656e4ece570ae229e1a4c0efd753d1754afd9e0594a77a32e5ce2985.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/12d84771656e4ece570ae229e1a4c0efd753d1754afd9e0594a77a32e5ce2985.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/19d9819db3fabfd796e567106a957905924bf6a7b1fb08ada6bca48435fb4637.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/19d9819db3fabfd796e567106a957905924bf6a7b1fb08ada6bca48435fb4637.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/19d9819db3fabfd796e567106a957905924bf6a7b1fb08ada6bca48435fb4637.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/19d9819db3fabfd796e567106a957905924bf6a7b1fb08ada6bca48435fb4637.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/26dfc8cec5360d6e03353d1aa2bd1f32806bde674db97acc4f8efb5c961dc4c2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/26dfc8cec5360d6e03353d1aa2bd1f32806bde674db97acc4f8efb5c961dc4c2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/2a5b6a7be0f08df02d8ab0b4d4c68648c2695c6c7ef0658c71de4d42b1415b18.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/2a5b6a7be0f08df02d8ab0b4d4c68648c2695c6c7ef0658c71de4d42b1415b18.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/2a5b6a7be0f08df02d8ab0b4d4c68648c2695c6c7ef0658c71de4d42b1415b18.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/2a5b6a7be0f08df02d8ab0b4d4c68648c2695c6c7ef0658c71de4d42b1415b18.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/365b16e3ee6f0291b840b9644231fff9e30b16504a367cdf3c6abe85187cb1e6.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/365b16e3ee6f0291b840b9644231fff9e30b16504a367cdf3c6abe85187cb1e6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/4501a2ff09b70a6cabfa3af4e8ee5ab899ba2eb4146abc6fabbb502e6de3684b.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/4501a2ff09b70a6cabfa3af4e8ee5ab899ba2eb4146abc6fabbb502e6de3684b.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/4501a2ff09b70a6cabfa3af4e8ee5ab899ba2eb4146abc6fabbb502e6de3684b.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/4501a2ff09b70a6cabfa3af4e8ee5ab899ba2eb4146abc6fabbb502e6de3684b.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/4e1eede1924f4a04ebbb1a677f9317c498b857630f0810f3e97cac8701f1ac11.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/4e1eede1924f4a04ebbb1a677f9317c498b857630f0810f3e97cac8701f1ac11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/4ed3450a4e974a2dcc625c8a86d25c30cb69605930041e77f81d1c67d4d33db0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/4ed3450a4e974a2dcc625c8a86d25c30cb69605930041e77f81d1c67d4d33db0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/5e6e14a2ae60d59be5711b5bc9952cde026836d4325d67d370c86b029c3be485.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/5e6e14a2ae60d59be5711b5bc9952cde026836d4325d67d370c86b029c3be485.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/7ca3aac86b4a3785e624e0f6a1b14d1c5eaea8bfc79afaab5491caf9e43beaf2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/7ca3aac86b4a3785e624e0f6a1b14d1c5eaea8bfc79afaab5491caf9e43beaf2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/9594853c37ffe5a6b8daa3761391550cbd5b7acd91ab6a58193f226db8ae8c90.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/9594853c37ffe5a6b8daa3761391550cbd5b7acd91ab6a58193f226db8ae8c90.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/95cb6f5a767c9ebb398c0e8bb165028008e705defff1e55714c798b78e6daa6e.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/95cb6f5a767c9ebb398c0e8bb165028008e705defff1e55714c798b78e6daa6e.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-19d9819db3fabfd796e567106a957905924bf6a7b1fb08ada6bca48435fb4637.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-19d9819db3fabfd796e567106a957905924bf6a7b1fb08ada6bca48435fb4637.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/build-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/build-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/capabilities.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/capabilities.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/d19821007101622738d95a587389c3ab9a4919ad850f60699c4070d4fb6f5cff.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/d19821007101622738d95a587389c3ab9a4919ad850f60699c4070d4fb6f5cff.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/fe5b4eb76204e81302e76a45ca9be95a42f431ebbc8b69359ec07d130ab0e186.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/fe5b4eb76204e81302e76a45ca9be95a42f431ebbc8b69359ec07d130ab0e186.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/results.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/summary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/summary.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,11 +78,16 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/co/com/orange/utils/Time.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2lykylFt8RjwHbB095WHrNlh8F3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,7 +102,76 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.Runner (2)">
+    <configuration name="Runner (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.com.orange.stepdefinitions.runners.Runner&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Runner (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;runners.Runner&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Runner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.orange.co.Runner&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Orange" />
       <extension name="coverage">
@@ -68,6 +189,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Runner (2)" />
+        <item itemvalue="Gradle.Runner (1)" />
+        <item itemvalue="Gradle.Runner" />
         <item itemvalue="JUnit.Runner" />
       </list>
     </recent_temporary>

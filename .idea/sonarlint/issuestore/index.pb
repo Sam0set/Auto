@@ -1,8 +1,4 @@
 
-C
-serenity.properties,2\5\25f1bbdc8dba7ca4a4b90251f1ef69621b24a28c
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 f
 6src/test/java/com/orange/co/pages/login/LoginPage.java,6\4\64a232cc1ed6f4cdf08d913f1d1a07ba0e74b121
 j

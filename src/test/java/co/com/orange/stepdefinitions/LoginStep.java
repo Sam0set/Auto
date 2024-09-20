@@ -13,10 +13,6 @@ public class LoginStep {
         OnStage.setTheStage(new OnlineCast());
     }
 
-    @Given("El usuario ingresa a Orange")
-    public void OpenOrange() {
-
-    }
 
     @When("coloca usuario y contraseña")
     public void EnterKeys() {

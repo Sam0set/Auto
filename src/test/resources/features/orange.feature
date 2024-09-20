@@ -5,7 +5,7 @@ Feature: ingresar en pag web
   Para poder registrarme como user
 
   Scenario: ingresar a la pagina Orange
-    Given El usuario ingresa a Orange
+    Given "Usuario" ingresa a Orange
     When coloca usuario y contraseña
     Then  se logea exitosamente
 
