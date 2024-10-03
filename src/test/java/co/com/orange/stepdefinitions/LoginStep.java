@@ -17,7 +17,7 @@ public class LoginStep {
     @When("coloca usuario y contraseña")
     public void enterKeys() {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                LoginWithCredentials.withCredentials("admin", "admin123")
+                LoginWithCredentials.withCredentials("dcarreno@fagorelectronica.com.co", "MPxjsgo5")
         );
     }
 

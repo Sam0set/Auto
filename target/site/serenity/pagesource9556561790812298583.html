@@ -1,0 +1,842 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="es"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta charset="utf-8"&gt; <br/>
+  &lt;title&gt;Ubika&lt;/title&gt; <br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; <br/>
+  &lt;meta name="description" content="Ubika"&gt; <br/>
+  &lt;meta name="author" content=""&gt; &lt;!-- JQuery --&gt; <br/>
+  &lt;script type="text/javascript" async src="https://www.googletagmanager.com/gtag/js?id=G-QDHYGPWJSN&amp;cx=c&amp;_slc=1"&gt;&lt;/script&gt;<br/>
+  &lt;script type="text/javascript" async src="https://www.googletagmanager.com/gtag/js?id=G-89C04K0PYZ&amp;cx=c&amp;_slc=1"&gt;&lt;/script&gt;<br/>
+  &lt;script async src="https://www.google-analytics.com/analytics.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/lib/jquery/jquery.js"&gt;&lt;/script&gt; <br/>
+  &lt;script src="/content/js/ui.js"&gt;&lt;/script&gt; &lt;!-- JQuery UI--&gt; <br/>
+  &lt;link rel="stylesheet" href="/lib/jquery/jquery-ui.css"&gt; <br/>
+  &lt;script src="/lib/jquery/jquery-ui.js"&gt;&lt;/script&gt; <br/>
+  &lt;link rel="stylesheet" href="/lib/jquery/jquery-ui-timepicker-addon.css"&gt; <br/>
+  &lt;script src="/lib/jquery/jquery-ui-timepicker-addon.js"&gt;&lt;/script&gt; &lt;!-- Le styles --&gt; <br/>
+  &lt;link href="/privada/css/estilos.css" rel="stylesheet"&gt; &lt;!-- Tipografía awesome --&gt; <br/>
+  &lt;link href="/content/css/font-awesome.min.css" rel="stylesheet" type="text/css"&gt; <br/>
+  &lt;script type="text/javascript" src="/content/js/ajax.js"&gt;&lt;/script&gt; &lt;!-- &lt;script src="https://cdn.socket.io/socket.io-1.4.5.js"&gt;&lt;/script&gt; --&gt; <br/>
+  &lt;script type="text/javascript" src="/content/js/ws.js"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript" src="/content/js/cookies.js"&gt;&lt;/script&gt; <br/>
+  &lt;script type="text/javascript" src="/content/js/funciones_comunes.js"&gt;&lt;/script&gt; &lt;!-- Le HTML5 shim, for IE6-8 support of HTML5 elements --&gt; &lt;!--[if lt IE 9]&gt;<br/>
+      &lt;script src="/content/js/html5shiv.js"&gt;&lt;/script&gt;<br/>
+    &lt;![endif]--&gt; &lt;!-- Le fav and touch icons --&gt; &lt;!--<br/>
+	&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="/content/ico/apple-touch-icon-144-precomposed.png"&gt;<br/>
+    &lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="/content/ico/apple-touch-icon-114-precomposed.png"&gt;<br/>
+	&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="/content/ico/apple-touch-icon-72-precomposed.png"&gt;<br/>
+	&lt;link rel="apple-touch-icon-precomposed" href="/content/ico/apple-touch-icon-57-precomposed.png"&gt;<br/>
+	--&gt; <br/>
+  &lt;link rel="shortcut icon" href="/content/imgs/favicon.ico"&gt; <br/>
+  &lt;script&gt;<br/>
+		var URL_BASE="ategi.ubika.es:8501";<br/>
+		var USUARIO="dcarreno@fagorelectronica.com.co";<br/>
+		var id_proveedor = null;<br/>
+		if(id_proveedor != null){<br/>
+			window.onload = function() {<br/>
+				WM.abrirVentana('Detalle Proveedor','/modulos/mantenimientosis/detalle_proveedor/?id_proveedor='+id_proveedor, true); <br/>
+			};		<br/>
+		}<br/>
+	&lt;/script&gt; <br/>
+  &lt;style type="text/css"&gt;<br/>
+		@font-face {<br/>
+			font-family: 'Roboto';<br/>
+			font-style: normal;<br/>
+			font-weight: 400;<br/>
+			src: local('Roboto Regular'), <br/>
+		       local('Roboto-Regular'), <br/>
+		       url(/content/fonts/roboto.woff) <br/>
+		       format('woff');<br/>
+		}<br/>
+	&lt;/style&gt; <br/>
+ &lt;/head&gt; <br/>
+ &lt;body&gt; <br/>
+  &lt;div class="wrap"&gt; <br/>
+   &lt;style&gt;<br/>
+	<br/>
+	.dropdown-content {<br/>
+		display: none;<br/>
+		position: absolute;<br/>
+		background-color: #f9f9f9;<br/>
+		min-width: 210px;<br/>
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);<br/>
+		padding: 12px 16px;<br/>
+		z-index: 1;<br/>
+		right: 0;;<br/>
+	}<br/>
+<br/>
+	.dropdown:hover .dropdown-content {<br/>
+		display: block;<br/>
+	}<br/>
+<br/>
+	#menu-alarmas{<br/>
+		color: black;<br/>
+		list-style-type: none;<br/>
+		padding-left: 0;<br/>
+	}<br/>
+<br/>
+	#menu-alarmas li{<br/>
+		font-size: 12px;<br/>
+		margin-bottom: 12px;<br/>
+	}<br/>
+	#menu-alarmas li:last-child{<br/>
+		margin-bottom: 0;<br/>
+	}<br/>
+	<br/>
+	.iconoGris {<br/>
+		font: 14px/100% Arial, Helvetica, sans-serif;<br/>
+		padding: 0.5em 1em 0.55em;<br/>
+		color: #666666;<br/>
+	}<br/>
+&lt;/style&gt; <br/>
+   &lt;header id="cabecera"&gt; <br/>
+    &lt;table class="cabecera" cellspacing="0" cellpadding="0"&gt; <br/>
+     &lt;tbody&gt; <br/>
+      &lt;tr&gt; <br/>
+       &lt;td class="boton hover" title="menu" menu="modulos" onclick="abrirMenu();" style="width: 2%"&gt; &lt;p&gt;&lt;i class="fa fa-bars fa fa-2x"&gt; &lt;/i&gt;&lt;/p&gt; &lt;/td&gt; <br/>
+       &lt;td class="boton hover" title="Dashboard" menu="cuadromandos" onclick="WM.abrirVentana('Dashboard Integral','/modulos/dashboard/dashboardIntegral/', true);" style="width: 3%"&gt; &lt;p&gt; &lt;!--&lt;i class="fa fa-th fa fa-2x" &gt; &lt;/i&gt;--&gt;&lt;i class="fa fa-bar-chart" aria-hidden="true"&gt;&lt;/i&gt;&lt;/p&gt; &lt;/td&gt; <br/>
+       &lt;td style="width: 35%;"&gt; &lt;p&gt;&lt;input type="text" size="25" style="border-radius: 9px 9px 9px 9px;-moz-border-radius: 9px 9px 9px 9px;-webkit-border-radius: 9px 9px 9px 9px;border: 1px solid #000000; display: none;"&gt;&lt;/p&gt; &lt;/td&gt; <br/>
+       &lt;td style="width: 20%" class="logoFagor" title="Logo Ubika"&gt;&lt;/td&gt; <br/>
+       &lt;td class="infoEmpresa"&gt; <br/>
+        &lt;div class="informacion" onclick="opcionesDesplegables()"&gt; <br/>
+         &lt;table class="informacionDesplegable" style="margin-right: 1em;"&gt; <br/>
+          &lt;tbody&gt;<br/>
+           &lt;tr&gt; <br/>
+            &lt;td&gt; <br/>
+             &lt;div class="pM" id="" style="margin-top: -0.45em;"&gt; &lt;i style="vertical-align: middle" id="flechaOpciones" class="fa fa-angle-down desactivado" title="Opciones"&gt; &lt;/i&gt; <br/>
+             &lt;/div&gt; &lt;/td&gt; <br/>
+           &lt;/tr&gt; <br/>
+          &lt;/tbody&gt;<br/>
+         &lt;/table&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="informacion" onclick="miPerfil();"&gt; <br/>
+         &lt;table class="informacion"&gt; <br/>
+          &lt;tbody&gt;<br/>
+           &lt;tr&gt; <br/>
+            &lt;td&gt; <br/>
+             &lt;div class="pM perfil_Container" id="perfil"&gt; &lt;i id="perfil" class="fa fa-user fa fa-2x" style="color: black; font-size: 1.75em; vertical-align: super;" title="Mi Perfil"&gt; &lt;/i&gt; <br/>
+             &lt;/div&gt; &lt;/td&gt; <br/>
+           &lt;/tr&gt; <br/>
+          &lt;/tbody&gt;<br/>
+         &lt;/table&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="informacion"&gt; <br/>
+         &lt;table class="informacion"&gt; <br/>
+          &lt;tbody&gt;<br/>
+           &lt;tr&gt; <br/>
+            &lt;td&gt; <br/>
+             &lt;div class="noti_Container" id="alarmasC"&gt; &lt;i id="alarmas" class="fa fa-bell-o fa-2x desactivado" title="Alarmas"&gt; &lt;/i&gt; <br/>
+              &lt;div id="burbuja-alarma" class="noti_bubble no_alarma"&gt;&lt;/div&gt; <br/>
+              &lt;div class="dropdown-content"&gt; <br/>
+               &lt;ul id="menu-alarmas"&gt; <br/>
+               &lt;/ul&gt; <br/>
+              &lt;/div&gt; <br/>
+             &lt;/div&gt; &lt;/td&gt; &lt;!--td&gt;<br/>
+									&lt;div class="pM noti_Container" id="alarmasC" onclick="WM.abrirVentana('Mensajes pendientes','/ame/listadoTipo/MSG/', true, true, true);"&gt;<br/>
+										&lt;i id="mensajes"class="fa fa-comment fa fa-2x desactivado" title="Mensajes"&gt; &lt;/i&gt;<br/>
+										&lt;div class="noti_bubble"&gt;&lt;/div&gt;<br/>
+									&lt;/div&gt;<br/>
+								&lt;/td&gt;<br/>
+																								<br/>
+									&lt;td&gt;<br/>
+										&lt;div class="pM noti_Container" id="alarmasC" onclick="WM.abrirVentana('Eventos pendientes','/ame/listadoTipo/EVT/', true, true, true);"&gt;<br/>
+											&lt;i id="eventos" class="fa fa-warning fa fa-2x desactivado" title="Eventos"&gt; &lt;/i&gt;<br/>
+											&lt;div class="noti_bubble"&gt;&lt;/div&gt;<br/>
+										&lt;/div&gt;<br/>
+									&lt;/td&gt;<br/>
+								--&gt; <br/>
+           &lt;/tr&gt; <br/>
+          &lt;/tbody&gt;<br/>
+         &lt;/table&gt; <br/>
+        &lt;/div&gt; <br/>
+        &lt;div class="logoEmpresa"&gt; <br/>
+         &lt;img src="/content/imgs/logo_Ategi.png" alt="Logo" title="Logo Empresa" class="logo"&gt; <br/>
+        &lt;/div&gt; &lt;/td&gt; <br/>
+      &lt;/tr&gt; <br/>
+     &lt;/tbody&gt; <br/>
+    &lt;/table&gt; <br/>
+   &lt;/header&gt; <br/>
+   &lt;script&gt;<br/>
+<br/>
+	function actualizaAlarma(id, id_spot, modo, element){<br/>
+		$(element).empty();<br/>
+		var params = "id_alarma="+id;<br/>
+		A.enviarPostDatos('/privada/actualiza_alarma', params, function(res) {<br/>
+			$('#burbuja-alarma')[0].innerText = (parseInt($('#burbuja-alarma')[0].innerText)-1);<br/>
+			abreDetalle(id_spot, modo);<br/>
+		});<br/>
+	}<br/>
+	<br/>
+	function actualizaAlarmaProveedor(id, id_proveedor, nombre_proveedor, element){<br/>
+		$(element).empty();<br/>
+		var params = "id_alarma="+id;<br/>
+		A.enviarPostDatos('/privada/actualiza_alarma', params, function(res) {<br/>
+			$('#burbuja-alarma')[0].innerText = (parseInt($('#burbuja-alarma')[0].innerText)-1);<br/>
+			abreDetalleProveedor(id_proveedor, nombre_proveedor);<br/>
+		});<br/>
+	}<br/>
+<br/>
+	function pintarAlarmas(){<br/>
+		var params = '';<br/>
+		A.enviarPostDatos('/privada/trae_alarmas', params, function(res) {<br/>
+			const alarmas_nuevas = JSON.parse(res);<br/>
+			if(alarmas_nuevas.length == 0){<br/>
+				if($('#alarmasC').hasClass('pM')){<br/>
+					$('#alarmasC').removeClass('pM');<br/>
+				}<br/>
+<br/>
+				if($('#alarmasC').hasClass('dropdown')){<br/>
+					$('#alarmasC').removeClass('dropdown');<br/>
+				}				<br/>
+<br/>
+				if($('#alarmas').hasClass('fa-bell')){<br/>
+					$('#alarmas').removeClass('fa-bell');<br/>
+				}<br/>
+<br/>
+				if($('#alarmas').hasClass('fa-bell-o') == false){<br/>
+					$('#alarmas').addClass('fa-bell-o');<br/>
+				}<br/>
+<br/>
+				if($('#burbuja-alarma').hasClass('no_alarma') == false){<br/>
+					$('#burbuja-alarma').addClass('no_alarma');<br/>
+				}<br/>
+<br/>
+				$('#burbuja-alarma').empty();<br/>
+<br/>
+				$('#menu-alarmas').empty();<br/>
+			} else{<br/>
+				if($('#alarmasC').hasClass('pM') == false){<br/>
+					$('#alarmasC').addClass('pM');<br/>
+				}<br/>
+<br/>
+				if($('#alarmasC').hasClass('dropdown') == false){<br/>
+					$('#alarmasC').addClass('dropdown');<br/>
+				}<br/>
+<br/>
+				if($('#alarmas').hasClass('fa-bell') == false){<br/>
+					$('#alarmas').addClass('fa-bell');<br/>
+				}<br/>
+<br/>
+				if($('#alarmas').hasClass('fa-bell-o')){<br/>
+					$('#alarmas').removeClass('fa-bell-o');<br/>
+				}<br/>
+<br/>
+				if($('#burbuja-alarma').hasClass('no_alarma')){<br/>
+					$('#burbuja-alarma').removeClass('no_alarma');<br/>
+				}<br/>
+<br/>
+				$('#burbuja-alarma')[0].innerText = alarmas_nuevas.length;<br/>
+<br/>
+				$('#menu-alarmas').empty();<br/>
+			}<br/>
+			for(var i = 0; i &lt; alarmas_nuevas.length; i++){<br/>
+				switch(alarmas_nuevas[i].tipo) {<br/>
+					case 1:<br/>
+						$('#menu-alarmas').append('&lt;li onclick="actualizaAlarma('+alarmas_nuevas[i].id+', '+alarmas_nuevas[i].id_spot+', '+alarmas_nuevas[i].tipo_spot+', this);"&gt;Nueva oferta en el Tender Spot '+alarmas_nuevas[i].id_spot+'.&lt;/li&gt;')<br/>
+						break;<br/>
+					case 2:<br/>
+						$('#menu-alarmas').append('&lt;li onclick="actualizaAlarma('+alarmas_nuevas[i].id+', '+alarmas_nuevas[i].id_spot+', '+alarmas_nuevas[i].tipo_spot+', this);"&gt;Oferta modificada en el Tender Spot '+alarmas_nuevas[i].id_spot+'.&lt;/li&gt;');<br/>
+						break;<br/>
+					case 3:<br/>
+						$('#menu-alarmas').append('&lt;li onclick="actualizaAlarma('+alarmas_nuevas[i].id+', '+alarmas_nuevas[i].id_spot+', '+alarmas_nuevas[i].tipo_spot+', this);"&gt;Un proveedor ha rechazado la participación en el Tender Spot '+alarmas_nuevas[i].id_spot+'.&lt;/li&gt;');<br/>
+						break;<br/>
+					case 4:<br/>
+						$('#menu-alarmas').append('&lt;li onclick="actualizaAlarma('+alarmas_nuevas[i].id+', '+alarmas_nuevas[i].id_spot+', '+alarmas_nuevas[i].tipo_spot+', this);"&gt;Fallo al enviar la invitación del Tender Spot '+alarmas_nuevas[i].id_spot+'.&lt;/li&gt;');<br/>
+						break;<br/>
+					case 5:<br/>
+						$('#menu-alarmas').append('&lt;li onclick="actualizaAlarma('+alarmas_nuevas[i].id+', '+alarmas_nuevas[i].id_spot+', '+alarmas_nuevas[i].tipo_spot+', this);"&gt;El plazo de respuesta del Tender Spot '+alarmas_nuevas[i].id_spot+' ha finalizado.&lt;/li&gt;');<br/>
+						break;<br/>
+					case 6:<br/>
+						$('#menu-alarmas').append('&lt;li onclick="actualizaAlarmaProveedor('+alarmas_nuevas[i].id+', '+alarmas_nuevas[i].id_proveedor+', \''+alarmas_nuevas[i].nombre_proveedor+'\', this);"&gt;Nueva solicitud del Proveedor: '+alarmas_nuevas[i].nombre_proveedor+'.&lt;/li&gt;');<br/>
+						break;<br/>
+				}<br/>
+			}<br/>
+		});		<br/>
+	}<br/>
+<br/>
+	function abreDetalle(id_spot, modo){<br/>
+<br/>
+		if(modo == 1) {<br/>
+			if(parent.WM){<br/>
+				parent.window.WM.abrirVentana('Tender Spot '+id_spot,'/modulos/tender_spot/detalle_spot_terrestre/?id_spot='+id_spot, false);<br/>
+			}else{<br/>
+				window.open('/modulos/tender_spot/detalle_spot');<br/>
+			}<br/>
+		} else if(modo == 2){<br/>
+			if(parent.WM){<br/>
+				parent.window.WM.abrirVentana('Tender Spot '+id_spot,'/modulos/tender_spot/detalle_spot/?id_spot='+id_spot, false);<br/>
+			}else{<br/>
+				window.open('/modulos/tender_spot/detalle_spot');<br/>
+			}<br/>
+		} else {<br/>
+			if(parent.WM){<br/>
+				parent.window.WM.abrirVentana('Tender Spot '+id_spot,'/modulos/tender_spot/detalle_spot_maritimo/?id_spot='+id_spot, false);<br/>
+			}else{<br/>
+				window.open('/modulos/tender_spot/detalle_spot');<br/>
+			}<br/>
+		}<br/>
+<br/>
+	}<br/>
+	<br/>
+	function abreDetalleProveedor(id_proveedor, nombre_proveedor){<br/>
+		if(parent.WM){<br/>
+			parent.window.WM.abrirVentana(nombre_proveedor,'/modulos/mantenimientosis/detalle_proveedor/?id_proveedor='+id_proveedor, false);<br/>
+		}else{<br/>
+			window.open('/modulos/mantenimientosis/detalle_proveedor');<br/>
+		}		<br/>
+	}<br/>
+<br/>
+	var x = setInterval(function() {<br/>
+		pintarAlarmas();<br/>
+	}, 15000);<br/>
+<br/>
+<br/>
+	function abrirMenu(){<br/>
+		if(document.getElementById("menu_modulos").style.display == ""){<br/>
+			document.getElementById("menu_modulos").style.width = "0px";<br/>
+			document.getElementById("menu_modulos").style.display = "none";<br/>
+		} else { <br/>
+			document.getElementById("menu_modulos").style.width = "300px";<br/>
+			document.getElementById("menu_modulos").style.display = "";<br/>
+		}<br/>
+	}<br/>
+<br/>
+	function opcionesDesplegables(){<br/>
+		if(document.getElementById('opcionesDesplegable').style.display  == ""){<br/>
+			document.getElementById('opcionesDesplegable').style.display  = "none";<br/>
+		} else { <br/>
+			document.getElementById('opcionesDesplegable').style.display  = "";<br/>
+		}<br/>
+	}<br/>
+<br/>
+	function escondeSubMenu(th){<br/>
+		if(th.parentNode.children[1].style.display == "none"){<br/>
+			th.parentNode.children[1].style.display = "";<br/>
+			th.children[0].children[1].children[0].className = "fas fa-angle-right fa fa-2x"<br/>
+		} else {<br/>
+			th.parentNode.children[1].style.display = "none";<br/>
+			th.children[0].children[1].children[0].className = "fas fa-angle-down fa fa-2x"<br/>
+		}<br/>
+	}<br/>
+	<br/>
+	function limpiarCache(menu){<br/>
+		switch (menu){<br/>
+			case 'facturacion':<br/>
+				sessionStorage.removeItem('textoFiltroFacturacion');<br/>
+				sessionStorage.removeItem('filtrosAplicadosFacturacion');<br/>
+				break;<br/>
+		}<br/>
+	}<br/>
+	<br/>
+	$('#alarmasC').on('dblclick', function() {<br/>
+		if ($('#burbuja-alarma')[0].innerText != '') {<br/>
+			$("#dialogMensaje").dialog({	<br/>
+				autoOpen: false,<br/>
+				draggable: false,<br/>
+				resizable: false,<br/>
+				autoResize: true,<br/>
+				minHeight: 70,<br/>
+				height: 'auto',<br/>
+				show: {<br/>
+					effect: "blind",<br/>
+					duration: 100<br/>
+				}<br/>
+			});<br/>
+			var res ='&lt;div style="text-align: center; padding: 0 10px 0 10px;"&gt;&lt;p style="margin-top:10%;margin-bottom:15%;font-size:16px !important"&gt;¿Está seguro de que quiere marcar todas las alarmas pendientes como leídas?&lt;/p&gt;&lt;span class="iconoGris" onclick ="limpiarAlarmas();$('+"'#dialogMensaje'"+').dialog('+"'close'"+');" style="background: #F5333F;border-radius: 4px;color: white;margin-top: 10px;margin-bottom: 10px;margin-right: 10px;cursor: pointer;"&gt;&lt;font class="" style="font-weight: 100;"&gt;CONFIRMAR&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;';<br/>
+			$("#dialogMensaje").dialog();<br/>
+			$("#dialogMensaje").dialog("option", "width", 300);<br/>
+			$("#dialogMensaje").dialog("option", "height", 200);<br/>
+			$($('.ui-dialog-titlebar-close')).replaceWith('&lt;button onclick="'+"$('#dialogMensaje').dialog('close');"+'" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title=""&gt;&lt;span class="ui-button-icon-primary ui-icon ui-icon-closethick"&gt;&lt;/span&gt;&lt;span class="ui-button-text"&gt;&lt;i class="fa fa-times"&gt; &lt;/i&gt;&lt;/span&gt;&lt;/button&gt;'); <br/>
+			$('#dialogMensaje').dialog('option', 'title', 'ELIMINAR ALARMAS PENDIENTES');<br/>
+			$('#dialogMensaje').html(res);<br/>
+			$("#dialogMensaje").dialog("option", "modal", true);<br/>
+			$('#dialogMensaje').dialog("open");<br/>
+		}<br/>
+	});<br/>
+	<br/>
+	function limpiarAlarmas(){<br/>
+		var params = '';<br/>
+		A.enviarPostDatos('/privada/limpiar_alarmas', params, function(res) {<br/>
+			if (res != '') {<br/>
+				if($('#alarmasC').hasClass('pM')){<br/>
+					$('#alarmasC').removeClass('pM');<br/>
+				}<br/>
+<br/>
+				if($('#alarmasC').hasClass('dropdown')){<br/>
+					$('#alarmasC').removeClass('dropdown');<br/>
+				}				<br/>
+<br/>
+				if($('#alarmas').hasClass('fa-bell')){<br/>
+					$('#alarmas').removeClass('fa-bell');<br/>
+				}<br/>
+<br/>
+				if($('#alarmas').hasClass('fa-bell-o') == false){<br/>
+					$('#alarmas').addClass('fa-bell-o');<br/>
+				}<br/>
+<br/>
+				if($('#burbuja-alarma').hasClass('no_alarma') == false){<br/>
+					$('#burbuja-alarma').addClass('no_alarma');<br/>
+				}<br/>
+<br/>
+				$('#burbuja-alarma').empty();<br/>
+				$('#menu-alarmas').empty();<br/>
+			}<br/>
+		});<br/>
+	}<br/>
+<br/>
+$(function() {<br/>
+  var Accordion = function(el, multiple) {<br/>
+    this.el = el || {};<br/>
+    this.multiple = multiple || false;<br/>
+<br/>
+    var links = this.el.find('.link');<br/>
+    links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)<br/>
+  }<br/>
+<br/>
+  Accordion.prototype.dropdown = function(e) {<br/>
+    var $el = e.data.el;<br/>
+      $this = $(this),<br/>
+      $next = $this.next();<br/>
+<br/>
+    $next.slideToggle();<br/>
+    $this.parent().toggleClass('open');<br/>
+<br/>
+    if (!e.data.multiple) {<br/>
+      $el.find('.submenu').not($next).slideUp().parent().removeClass('open');<br/>
+    };<br/>
+  }  <br/>
+<br/>
+  var accordion = new Accordion($('#accordion'), false);<br/>
+});<br/>
+&lt;/script&gt; <br/>
+   &lt;div class="menu" id="menu_modulos" style="position: absolute; color: black; font-weight: bold; height: 100%; display: none; border-right: 1px solid grey; font-family: Roboto; overflow: auto; height: calc(100% - 50px);"&gt; <br/>
+    &lt;div class="moduloMenu"&gt; <br/>
+     &lt;table class="tblMenuOpciones" style="width: 100%; margin-top: 1em;"&gt; <br/>
+      &lt;thead onclick="escondeSubMenu(this)" style="border-bottom: 1px solid white; border-top: 1px solid white;"&gt; <br/>
+       &lt;tr&gt; <br/>
+        &lt;td height="25" align="left" style="font-size:13px;"&gt; &lt;span id="tituloMenu"&gt; &lt;i class="fa fa-pie-chart" aria-hidden="true" style="text-indent: 0px;"&gt;&lt;/i&gt; Dashboard &lt;/span&gt; &lt;/td&gt; <br/>
+        &lt;td align="right"&gt;&lt;i style="margin-right: 0.75em;" class="fas fa-angle-right fa fa-2x"&gt;&lt;/i&gt;&lt;/td&gt; <br/>
+       &lt;/tr&gt; <br/>
+      &lt;/thead&gt; <br/>
+      &lt;tbody&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Dashboard Integral','/modulos/dashboard/dashboardIntegral/', true);abrirMenu();"&gt;Dashboard Integral&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+      &lt;/tbody&gt; <br/>
+     &lt;/table&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="moduloMenu"&gt; <br/>
+     &lt;table class="tblMenuOpciones" style="width: 100%; margin-top: 1em;"&gt; <br/>
+      &lt;thead onclick="escondeSubMenu(this)" style="border-bottom: 1px solid white; border-top: 1px solid white;"&gt; <br/>
+       &lt;tr&gt; <br/>
+        &lt;td height="25" align="left" style="font-size:13px;"&gt; &lt;span id="tituloMenu"&gt; &lt;i class="fa fa-handshake-o" aria-hidden="true" style="text-indent: 0px;"&gt;&lt;/i&gt; Tender &lt;/span&gt; &lt;/td&gt; <br/>
+        &lt;td align="right"&gt;&lt;i style="margin-right: 0.75em;" class="fas fa-angle-right fa fa-2x"&gt;&lt;/i&gt;&lt;/td&gt; <br/>
+       &lt;/tr&gt; <br/>
+      &lt;/thead&gt; <br/>
+      &lt;tbody&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Comparación de Cooperativas','/cartografia/comparacionCooperativas/', true);abrirMenu();"&gt;Comparación de Cooperativas&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Gestion de Tenders','/modulos/tender/gestion/', true);abrirMenu();"&gt;Gestión de Tenders&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Gestion de Tenders Spot','/modulos/tender_spot/gestion/', true);abrirMenu();"&gt;Gestión de Tenders Spot&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Gestion de Clientes','/modulos/mantenimientosis/listaclientes/', true);abrirMenu();"&gt;Gestión de Clientes&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Gestion de Proveedores','/modulos/mantenimientosis/listaproveedores/', true);abrirMenu();"&gt;Gestión de Proveedores&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+      &lt;/tbody&gt; <br/>
+     &lt;/table&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="moduloMenu"&gt; <br/>
+     &lt;table class="tblMenuOpciones" style="width: 100%; margin-top: 1em;"&gt; <br/>
+      &lt;thead onclick="escondeSubMenu(this)" style="border-bottom: 1px solid white; border-top: 1px solid white;"&gt; <br/>
+       &lt;tr&gt; <br/>
+        &lt;td height="25" align="left" style="font-size:13px;"&gt; &lt;span id="tituloMenu"&gt; &lt;i class="fa fa-euro" aria-hidden="true" style="text-indent: 0px;"&gt;&lt;/i&gt; Facturación &lt;/span&gt; &lt;/td&gt; <br/>
+        &lt;td align="right"&gt;&lt;i style="margin-right: 0.75em;" class="fas fa-angle-right fa fa-2x"&gt;&lt;/i&gt;&lt;/td&gt; <br/>
+       &lt;/tr&gt; <br/>
+      &lt;/thead&gt; <br/>
+      &lt;tbody&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Resumen de Facturación','/modulos/facturacion/resumen/', true, true);abrirMenu();limpiarCache('facturacion');"&gt;Control de Facturación&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+      &lt;/tbody&gt; <br/>
+     &lt;/table&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="moduloMenu"&gt; <br/>
+     &lt;table class="tblMenuOpciones" style="width: 100%;"&gt; <br/>
+      &lt;thead onclick="escondeSubMenu(this)" style="border-bottom: 1px solid white; border-top: 1px solid white;"&gt; <br/>
+       &lt;tr&gt; <br/>
+        &lt;td height="25" align="left" style="font-size:1.1em;"&gt; &lt;span id="tituloMenu"&gt; &lt;i class="fa fa-cog" aria-hidden="true" style="text-indent: 0px;"&gt;&lt;/i&gt; Gestión &lt;/span&gt; &lt;/td&gt; <br/>
+        &lt;td align="right"&gt;&lt;i style="margin-right: 0.75em;" class="fas fa-angle-right fa fa-2x"&gt;&lt;/i&gt;&lt;/td&gt; <br/>
+       &lt;/tr&gt; <br/>
+      &lt;/thead&gt; <br/>
+      &lt;tbody&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Perfiles de usuario','/permisos/listadobasico/', true);abrirMenu();"&gt;Perfiles de usuario&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Usuarios','/modulos/mantenimientosis/listausuarios/', true);abrirMenu();"&gt;Usuarios&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+      &lt;/tbody&gt; <br/>
+     &lt;/table&gt; <br/>
+    &lt;/div&gt; <br/>
+    &lt;div class="moduloMenu"&gt; <br/>
+     &lt;table class="tblMenuOpciones" style="width: 100%; margin-top: 1em;"&gt; <br/>
+      &lt;thead onclick="escondeSubMenu(this)" style="border-bottom: 1px solid white; border-top: 1px solid white;"&gt; <br/>
+       &lt;tr&gt; <br/>
+        &lt;td height="25" align="left" style="font-size:13px;"&gt; &lt;span id="tituloMenu"&gt; &lt;i class="fa fa-truck" aria-hidden="true" style="text-indent: 0px;"&gt;&lt;/i&gt; Seguimiento &lt;/span&gt; &lt;/td&gt; <br/>
+        &lt;td align="right"&gt;&lt;i style="margin-right: 0.75em;" class="fas fa-angle-right fa fa-2x"&gt;&lt;/i&gt;&lt;/td&gt; <br/>
+       &lt;/tr&gt; <br/>
+      &lt;/thead&gt; <br/>
+      &lt;tbody&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Seguimiento','/modulos/seguimiento/seguimiento/', true);abrirMenu();"&gt;Seguimiento&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+       &lt;tr&gt;<br/>
+        &lt;td height="30" align="left" style="padding-left: 3em;"&gt;&lt;a id="subtituloMenu" href="#" onclick="WM.abrirVentana('Gestión de Eventos','/modulos/seguimiento/gestion_eventos/', true);abrirMenu();"&gt;Gestión de Eventos&lt;/a&gt; &lt;/td&gt;<br/>
+       &lt;/tr&gt; <br/>
+      &lt;/tbody&gt; <br/>
+     &lt;/table&gt; <br/>
+    &lt;/div&gt; &lt;!--div class="moduloMenu" style="margin: 10px;"&gt;<br/>
+		&lt;table class="tblMenuOpciones" style="width: 100%;"&gt;<br/>
+			&lt;thead&gt;<br/>
+				&lt;tr&gt;<br/>
+					&lt;td align="left" style="font-size:1.1em;"&gt;&lt;span style="font-size:1.1em;"&gt;Facturación&lt;/span&gt;&lt;/td&gt;<br/>
+					&lt;td align="right"&gt;&lt;i class="fas fa-angle-down fa fa-2x"&gt;&lt;/i&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br/>
+				&lt;/tr&gt;<br/>
+			&lt;/thead&gt;<br/>
+			&lt;tbody&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Dashboard','/modulos/formularios/recibidossql/', true);abrirMenu();"&gt;Dashboard&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Carga de archivos','/modulos/formularios/gestion/', true);abrirMenu();"&gt;Carga de archivos&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Comprobaciones','/modulos/formularios/edicion/', true);abrirMenu();"&gt;Comprobaciones&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+			&lt;/tbody&gt;<br/>
+		&lt;/table&gt;<br/>
+	&lt;/div&gt;<br/>
+										<br/>
+	&lt;div class="moduloMenu" style="margin: 10px;"&gt;<br/>
+		&lt;table class="tblMenuOpciones" style="width: 100%;"&gt;<br/>
+			&lt;thead&gt;<br/>
+				&lt;tr&gt;<br/>
+					&lt;td align="left" style="font-size:1.1em;"&gt;&lt;span style="font-size:1.1em;"&gt;Seguimiento&lt;/span&gt;&lt;/td&gt;<br/>
+					&lt;td align="right"&gt;&lt;i class="fas fa-angle-down fa fa-2x"&gt;&lt;/i&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br/>
+				&lt;/tr&gt;<br/>
+			&lt;/thead&gt;<br/>
+			&lt;tbody&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Dashboard','/cartografia/gestionZonasGeo/', false);abrirMenu();"&gt;Dashboard&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Por cooperativa','/cartografia/geocercasVehiculos/', false);abrirMenu();"&gt;Por cooperativa&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Por proveedor','/cartografia/vehiculosGeocercas/', false);abrirMenu();"&gt;Por proveedor&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+			&lt;/tbody&gt;<br/>
+		&lt;/table&gt;<br/>
+	&lt;/div&gt;<br/>
+										<br/>
+	&lt;div class="moduloMenu" style="margin: 10px;"&gt;<br/>
+		&lt;table class="tblMenuOpciones" style="width: 100%;"&gt;<br/>
+			&lt;thead&gt;<br/>
+				&lt;tr&gt;<br/>
+					&lt;td align="left" style="font-size:1.1em;"&gt;&lt;span style="font-size:1.1em;"&gt;Incidencias&lt;/span&gt;&lt;/td&gt;<br/>
+					&lt;td align="right"&gt;&lt;i class="fas fa-angle-down fa fa-2x"&gt;&lt;/i&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br/>
+				&lt;/tr&gt;<br/>
+			&lt;/thead&gt;<br/>
+			&lt;tbody&gt;				<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Dashboard','/modulos/seguimientorutas/general/', true);abrirMenu();"&gt;Dashboard&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Altas','/modulos/seguimientorutas/paradasfz/', true);abrirMenu();"&gt;Altas&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+			&lt;/tbody&gt;<br/>
+		&lt;/table&gt;<br/>
+	&lt;/div&gt;<br/>
+										<br/>
+	&lt;div class="moduloMenu" style="margin: 10px;"&gt;<br/>
+		&lt;table class="tblMenuOpciones" style="width: 100%;"&gt;<br/>
+			&lt;thead&gt;<br/>
+				&lt;tr&gt;<br/>
+					&lt;td align="left" style="font-size:1.1em;"&gt;&lt;span style="font-size:1.1em;"&gt;Transitarios&lt;/span&gt;&lt;/td&gt;<br/>
+					&lt;td align="right"&gt;&lt;i class="fas fa-angle-down fa fa-2x"&gt;&lt;/i&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br/>
+				&lt;/tr&gt;<br/>
+			&lt;/thead&gt;<br/>
+			&lt;tbody&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Gestión','/modulos/rutas/crearRutaPlus/', false);abrirMenu();"&gt;Gestión&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Alta','/modulos/rutas/listadoRutasPlus/', false);abrirMenu();"&gt;Alta&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Baja','/modulos/rutas/cuadroMandosRutas/', false);abrirMenu();"&gt;Baja&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+			&lt;/tbody&gt;<br/>
+		&lt;/table&gt;<br/>
+	&lt;/div&gt;<br/>
+										<br/>
+	&lt;div class="moduloMenu" style="margin: 10px;"&gt;<br/>
+		&lt;table class="tblMenuOpciones" style="width: 100%;"&gt;<br/>
+			&lt;thead&gt;<br/>
+				&lt;tr&gt;<br/>
+					&lt;td align="left" style="font-size:1.1em;"&gt;&lt;span style="font-size:1.1em;"&gt;Cooperativas&lt;/span&gt;&lt;/td&gt;<br/>
+					&lt;td align="right"&gt;&lt;i class="fas fa-angle-down fa fa-2x"&gt;&lt;/i&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br/>
+				&lt;/tr&gt;<br/>
+			&lt;/thead&gt;<br/>
+			&lt;tbody&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Gestión','/cartografia/ruta/', false);abrirMenu();"&gt;Gestión&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Alta','/modulos/rutas/listado/', false);abrirMenu();"&gt;Alta&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+				&lt;tr&gt;&lt;td align="left"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i style="color: #FFFFFF;" class="fa fa-caret-right" aria-hidden="true"&gt;&lt;/i&gt;				<br/>
+					&lt;a href="#" onclick="WM.abrirVentana('Baja','/modulos/rutas/listado/', false);abrirMenu();"&gt;Baja&lt;/a&gt;<br/>
+				&lt;/td&gt;&lt;/tr&gt;<br/>
+			&lt;/tbody&gt;<br/>
+		&lt;/table&gt;<br/>
+	&lt;/div--&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;div class="container" id="contenido" style="height: 519px;"&gt; <br/>
+    &lt;div id="opcionesDesplegable" align="center" style="display: none; z-index: 2; position: fixed; right: 0; background: white; color: black; box-shadow: 1px 1px 5px 1px grey; margin-right: 1em; background: var(--tema1);"&gt; <br/>
+     &lt;table style="border-collapse: inherit; border-spacing: 10px 10px;"&gt; <br/>
+      &lt;tbody&gt; <br/>
+       &lt;tr title="Cerrar sesión" onclick="window.location='/usuario/cerrar_sesion_/'" style="cursor: pointer;"&gt; <br/>
+        &lt;td&gt;&lt;i id="cerrarsesion" class="fa fa-sign-out" title="Cerrar sesión"&gt; &lt;/i&gt; &lt;/td&gt; <br/>
+        &lt;td&gt;Cerrar sesión&lt;/td&gt; <br/>
+       &lt;/tr&gt; <br/>
+      &lt;/tbody&gt; <br/>
+     &lt;/table&gt; <br/>
+    &lt;/div&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;script&gt;<br/>
+  $("#miperfilcontainer").dialog({<br/>
+    autoOpen: false,<br/>
+    draggable: false,<br/>
+    resizable: false,<br/>
+    autoResize: true,<br/>
+    minHeight: 70,<br/>
+    height: 'auto',<br/>
+    show: {<br/>
+    effect: "blind",<br/>
+    duration: 100<br/>
+    }<br/>
+  });<br/>
+<br/>
+  function miPerfil() { <br/>
+    A.enviarPostDatos('/modulos/miperfil/mi_perfil/', null, <br/>
+      function(res) {<br/>
+        $("#dialogMensaje").dialog("option", "width", 650);<br/>
+        $("#dialogMensaje").dialog("option", "height", 320);<br/>
+        $('#dialogMensaje').dialog('option', 'title', 'MI PERFIL');<br/>
+        $('#dialogMensaje').html(res);<br/>
+        $("#dialogMensaje").dialog("option", "modal", true);<br/>
+        $('#dialogMensaje').dialog("open");<br/>
+      }<br/>
+    );<br/>
+  }<br/>
+	&lt;/script&gt; <br/>
+  &lt;/div&gt;<br/>
+  &lt;div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog" aria-describedby="miperfilcontainer" aria-labelledby="ui-id-1" style="display: none;"&gt;<br/>
+   &lt;div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"&gt;<br/>
+    &lt;span id="ui-id-1" class="ui-dialog-title"&gt;&nbsp;&lt;/span&gt;&lt;button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title=""&gt;&lt;span class="ui-button-icon-primary ui-icon ui-icon-closethick"&gt;&lt;/span&gt;&lt;span class="ui-button-text"&gt;&lt;i class="fa fa-times"&gt; &lt;/i&gt;&lt;/span&gt;&lt;/button&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div id="miperfilcontainer" style="" class="ui-dialog-content ui-widget-content"&gt; <br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt; &lt;!-- /wrap --&gt; <br/>
+  &lt;div class="push"&gt; <br/>
+  &lt;/div&gt; &lt;!--&lt;div class="menuabajo" id="seleccionFlota"&gt;&lt;iframe src="/vehiculos/seleccionflota/"&gt;&lt;/iframe&gt;&lt;/div&gt;--&gt; &lt;!--&lt;div class="menuabajo" id="favoritos"&gt;<br/>
+  		&lt;div class="menuabajoTitulo pM" onclick="WM.favoritos.nuevo();"&gt;<br/>
+			&lt;div style="float: left;"&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt; Favoritos &lt;/div&gt;<br/>
+			&lt;div style="float: right; padding-right: 10px;"&gt;&lt;i class="fa fa-plus"&gt; &lt;/i&gt;&lt;/div&gt;<br/>
+		&lt;/div&gt;<br/>
+		&lt;div class="menuabajoContenedor"&gt;<br/>
+			&lt;table class="lista" id="tblFavoritos"&gt;<br/>
+			&lt;/table&gt;<br/>
+		&lt;/div&gt;<br/>
+  	&lt;/div&gt;--&gt; &lt;!--&lt;div class="menuabajo" id="historial"&gt;<br/>
+  		&lt;div class="menuabajoTitulo pM"&gt;<br/>
+			&lt;i class="fa fa-clock-o"&gt;&lt;/i&gt; Historial		&lt;/div&gt;<br/>
+		&lt;div class="menuabajoContenedor"&gt;<br/>
+			&lt;table class="lista" id="tblHistorial"&gt;&lt;/table&gt;<br/>
+		&lt;/div&gt;<br/>
+  	&lt;/div&gt;--&gt; &lt;!--&lt;div class="menuabajo" id="buscadorFN"&gt;<br/>
+  		&lt;div class="menuabajoTitulo pM"&gt;<br/>
+			&lt;i class="fa fa-search"&gt;&lt;/i&gt; Buscador		&lt;/div&gt;<br/>
+		&lt;div class="menuabajoContenedor" style="height: calc(100% - 10px);"&gt;<br/>
+			&lt;div class="lista" id="tblBuscador" style="height: calc(100% - 48px); padding: 4px; overflow-y: auto;"&gt;<br/>
+												&lt;div tag="quadro dei comandi;" class="pM resaltado" onclick="WM.abrirVentana('Cuadro de mandos','/vehiculos/cuadromandos/', true); toggleMenu('buscadorFN');"&gt;&lt;b&gt;Cuadro de mandos&lt;/b&gt;<br/>
+															&lt;/div&gt;&lt;div tag=";" &gt;&lt;b&gt;Módulos&lt;/b&gt;<br/>
+															&lt;div tag=";" &gt;&nbsp;&nbsp;&nbsp;&nbsp;Tender														&lt;div tag="mensajeria;mensajes;comunicaciones;" class="pM resaltado" onclick="WM.abrirVentana('Dashboard','/cartografia/jasper/', true); toggleMenu('buscadorFN');"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard														&lt;/div&gt;&lt;div tag="gestion;tender;" class="pM resaltado" onclick="WM.abrirVentana('Gestion de tenders','/modulos/tender/gestion/', true); toggleMenu('buscadorFN');"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gestion de tenders											&lt;/div&gt;<br/>
+								&lt;/div&gt;<br/>
+								&lt;/div&gt;<br/>
+							&lt;/div&gt;<br/>
+			&lt;div class="menuabajoTitulo pM" style="height: 40px;"&gt;<br/>
+				&lt;input id="txtBuscadorFN" type="text" value="" style="width: 90%; position: relative; top: 10%; left: 8px;" onkeyup="buscar();" /&gt;<br/>
+			&lt;/div&gt;<br/>
+		&lt;/div&gt;<br/>
+  	&lt;/div&gt;--&gt; <br/>
+  &lt;footer class="footer" id="pie"&gt; <br/>
+   &lt;script&gt;<br/>
+			function toggleMenu(menu) {<br/>
+				if (!$('#'+menu).hasClass('maximizado')) {<br/>
+					$('.menuabajo').removeClass('maximizado');<br/>
+					$('#'+menu).toggleClass('maximizado');<br/>
+					if(menu=='buscadorFN') {<br/>
+						$('#txtBuscadorFN').focus();<br/>
+					}<br/>
+				} else {<br/>
+					$('.menuabajo').removeClass('maximizado');<br/>
+				}<br/>
+			}<br/>
+			function abreMenu(menu) {<br/>
+			  	$('#'+menu).addClass('maximizado');<br/>
+			}<br/>
+			function cierraMenu(menu) {<br/>
+			  	$('#'+menu).removeClass('maximizado');<br/>
+			}<br/>
+		&lt;/script&gt; <br/>
+   &lt;div class="footerContainer" id="barraVentanas"&gt; <br/>
+   &lt;/div&gt; &lt;!--&lt;div class="logoFagorPequeno botonFR" title="Fagor Electrónica"&gt;&lt;/div&gt;--&gt; &lt;!--<br/>
+	  	  &lt;div class="botonFooter botonFR"&gt;<br/>
+	  	&lt;i class="fa fa-question-circle fa fa-2x" onclick=""&gt; &lt;/i&gt;<br/>
+	  &lt;/div&gt;<br/>
+	  	  &lt;div class="botonFooter botonFR"&gt;<br/>
+	  	&lt;i class="fa fa-exclamation-circle fa fa-2x"&gt; &lt;/i&gt;<br/>
+	  &lt;/div&gt;<br/>
+	  --&gt; <br/>
+  &lt;/footer&gt; <br/>
+  &lt;style&gt;<br/>
+	    #notificaciones {<br/>
+	        width: 300px;<br/>
+	        height: auto;<br/>
+	        position: absolute;<br/>
+	        right: 0;<br/>
+	        bottom: 0;<br/>
+	        -webkit-transition: height .5s;<br/>
+	    }<br/>
+	    #notificaciones p {<br/>
+            background: #0085FE;<br/>
+            border-radius: 5px;<br/>
+            margin-bottom: 5px;<br/>
+            margin-right: 5px;<br/>
+            padding: 5px;<br/>
+            color: white;<br/>
+            box-shadow: 1px 1px 7px black;<br/>
+	    }<br/>
+	&lt;/style&gt; <br/>
+  &lt;div id="notificaciones" style=""&gt;&lt;/div&gt; <br/>
+  &lt;div id="dialogMensaje"&gt;&lt;/div&gt; <br/>
+  &lt;script&gt;<br/>
+		RELOJ.inicializar();<br/>
+		var cookieAviso='Jose DavidCarreñoAtegi';<br/>
+		$(document).ready(function(){<br/>
+    		WM.favoritos.cargar();<br/>
+    		//WM.historial.cargar();<br/>
+    		//WM.buscadorFN.cargar();<br/>
+    		configurarDialog();<br/>
+    		            var avisoLeido=C.getCookie('avisoLeido'.cookieAviso);<br/>
+            if (avisoLeido=='true') {<br/>
+                <br/>
+            } else {<br/>
+                $('.avisoServidor').fadeIn();<br/>
+            }<br/>
+            WS.inicializar();<br/>
+		});<br/>
+		<br/>
+		function cerrarAviso() {<br/>
+		    C.setCookie('avisoLeido'.cookieAviso, 'true', 9999999);<br/>
+		    $('.avisoServidor').fadeOut();<br/>
+		}<br/>
+		<br/>
+		var buscarT=null;<br/>
+		function buscar() {<br/>
+	        if (buscarT!=null) { clearTimeout(buscarT); }<br/>
+	        buscarT=setTimeout(filtrar, 1000);<br/>
+		}<br/>
+		<br/>
+		var actualizando=false;<br/>
+		function filtrar() {<br/>
+			if (actualizando) { setTimeout(filtrar, 500); return; }<br/>
+			actualizando=true;<br/>
+			<br/>
+			var texto=$('#txtBuscadorFN').val().toLowerCase();<br/>
+			texto = texto.replace(/á/gi,"a");<br/>
+		    texto = texto.replace(/é/gi,"e");<br/>
+		    texto = texto.replace(/í/gi,"i");<br/>
+		    texto = texto.replace(/ó/gi,"o");<br/>
+		    texto = texto.replace(/ú/gi,"u");<br/>
+<br/>
+			// Todos visibles<br/>
+			$("#tblBuscador div").show();<br/>
+<br/>
+			$("#tblBuscador div div div").each(function(){<br/>
+				if ($(this).attr("tag").indexOf(texto) &gt;= 0) {<br/>
+					$(this).show();<br/>
+				}<br/>
+				else {<br/>
+					$(this).hide();<br/>
+				}<br/>
+			});<br/>
+<br/>
+			$("#tblBuscador &gt; div &gt; div").each(function(){<br/>
+				if($(this).find('div:visible').length==0){<br/>
+					$(this).hide();<br/>
+				}<br/>
+				else {<br/>
+					$(this).show();<br/>
+				}<br/>
+			});<br/>
+			<br/>
+			$("#tblBuscador &gt; div").each(function(){<br/>
+				if ($(this)['0'].innerText == 'Mapa' || $(this)['0'].innerText == 'Cuadro de mandos'){<br/>
+					if ($(this).attr("tag").indexOf(texto) &gt;= 0) {<br/>
+						$(this).show();<br/>
+					}<br/>
+					else {<br/>
+						$(this).hide();<br/>
+					}<br/>
+				}<br/>
+				else {<br/>
+					if($(this).find('div:visible').length==0){<br/>
+						$(this).hide();<br/>
+					}<br/>
+					else {<br/>
+						$(this).show();<br/>
+					}<br/>
+				}<br/>
+			});<br/>
+<br/>
+	 		actualizando=false;<br/>
+		}<br/>
+	&lt;/script&gt; <br/>
+  &lt;script&gt;<br/>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){<br/>
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),<br/>
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)<br/>
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');<br/>
+     <br/>
+      ga('create', 'UA-87387372-1', 'auto');<br/>
+      ga('send', 'pageview');<br/>
+     <br/>
+    &lt;/script&gt; <br/>
+  &lt;div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog" aria-describedby="dialogMensaje" aria-labelledby="ui-id-2" style="display: none;"&gt;<br/>
+   &lt;div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"&gt;<br/>
+    &lt;span id="ui-id-2" class="ui-dialog-title"&gt;&nbsp;&lt;/span&gt;&lt;button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title=""&gt;&lt;span class="ui-button-icon-primary ui-icon ui-icon-closethick"&gt;&lt;/span&gt;&lt;span class="ui-button-text"&gt;&lt;i class="fa fa-times"&gt; &lt;/i&gt;&lt;/span&gt;&lt;/button&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div id="dialogMensaje" class="ui-dialog-content ui-widget-content"&gt;&lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

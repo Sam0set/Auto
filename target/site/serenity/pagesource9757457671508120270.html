@@ -1,0 +1,205 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;script src="/lib/jquery/jquery.js"&gt;&lt;/script&gt; <br/>
+  &lt;link rel="stylesheet" href="/content/css/publica.css"&gt; <br/>
+  &lt;link href="/lib/fontawesome/css/all.css" rel="stylesheet"&gt; <br/>
+  &lt;script src="/lib/cripto/sha512.js"&gt;&lt;/script&gt; <br/>
+  &lt;title&gt;Ubika&lt;/title&gt; <br/>
+  &lt;link rel="shortcut icon" href="/content/imgs/ubika_logo_dibujo.png"&gt; <br/>
+ &lt;/head&gt; <br/>
+ &lt;body&gt; <br/>
+  &lt;div&gt; &lt;select id="idioma" style="float: right; margin-right: 6px;" onchange="cambiarIdioma();"&gt; &lt;option value="es"&gt;Castellano&lt;/option&gt; &lt;option value="en"&gt;English&lt;/option&gt; &lt;/select&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div style="width: 400px; height: fit-content; overflow: auto; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: rgba(255, 255, 255, 0.85); border-radius: 4px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"&gt; <br/>
+   &lt;div&gt; <br/>
+    &lt;img src="/content/imgs/ubika_logo.png" alt=""&gt; <br/>
+   &lt;/div&gt; <br/>
+   &lt;form action="" method="post" name="loginForm" id="loginForm" autocomplete="on" onsubmit="return false;" style="width: fit-content; margin: 0 auto;"&gt; <br/>
+    &lt;input class="login-form" name="username" id="username" type="text" placeholder="Email" autocomplete="username" style="border: 3px solid red;"&gt; <br/>
+    &lt;input class="login-form" name="password" id="password" type="password" placeholder="Contraseña" autocomplete="current-password"&gt; <br/>
+    &lt;input type="hidden" name="challenge" value="f033255aa871c8dc18673bfb1dfdf55a62004c9ad38fbe830372728e0b6d5c8c17cb7ff54c733327"&gt; <br/>
+   &lt;/form&gt; <br/>
+   &lt;br&gt; &lt;text id="mensajeError" style="visibility: hidden; color: #DA291C; font-size: 14px; margin-top: -10px; margin-bottom: 10px;"&gt;<br/>
+    El email o contraseña que has introducido son incorrectos.<br/>
+   &lt;/text&gt; &lt;button id="boton" class="botonComun" type="submit" onclick="return login();" style="margin-left: 26%;"&gt;Acceder&lt;/button&gt; <br/>
+   &lt;ul class="social-menu"&gt; <br/>
+    &lt;li&gt;&lt;a href="https://www.fagorsmartdata.com/es"&gt;&lt;i class="fa-fagor"&gt;&lt;img src="/content/imgs/logo_fagor.svg" style="filter: brightness(0) invert(1); width: 25px; height: 25px; margin: 7px;"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+    &lt;li&gt;&lt;a href="https://www.facebook.com/fagorsmartdata/"&gt;&lt;i class="fab fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+    &lt;li&gt;&lt;a href="https://www.linkedin.com/showcase/flotasnet"&gt;&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+    &lt;li&gt;&lt;a href="https://twitter.com/fagorsmartdata"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+    &lt;li&gt;&lt;a href="https://www.instagram.com/fagorsmartdata/"&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+    &lt;li&gt;&lt;a href="https://www.youtube.com/channel/UCtXGKZsHdITqxRJyqpvaqWA"&gt;&lt;i class="fab fa-youtube"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+    &lt;li&gt;&lt;a href="https://open.spotify.com/user/zj4qttgcu8w9ozcrb7dv9p2y8?si=f9f392db05e04892"&gt;&lt;i class="fab fa-spotify"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt; <br/>
+   &lt;/ul&gt; &lt;text&gt;<br/>
+    Copyright © 2021 FAGOR TELECOM SLU. All rights reserved.<br/>
+   &lt;/text&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script&gt;<br/>
+	function validateEmail (email) {	<br/>
+		return String(email)	<br/>
+			.toLowerCase()	<br/>
+			.match(	<br/>
+			/^(([^&lt;&gt;()[\]\\.,;:\s@"]+(\.[^&lt;&gt;()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/	<br/>
+		);	<br/>
+	};<br/>
+<br/>
+    function login() {<br/>
+        username.style.border='';<br/>
+        password.style.border='';<br/>
+		document.getElementById("mensajeError").style.visibility = "none";   <br/>
+<br/>
+		loginForm.username.value = loginForm.username.value.trim();<br/>
+		<br/>
+        if (loginForm.username.value == "" || validateEmail(loginForm.username.value) == null) {<br/>
+            try {<br/>
+				document.getElementById("mensajeError").style.visibility = "hidden";<br/>
+                username=document.getElementById('username');<br/>
+                username.style.border = '3px solid red'; <br/>
+            } catch(e) {<br/>
+            }<br/>
+            return false;<br/>
+        }<br/>
+        if (loginForm.password.value == "") {<br/>
+            try {<br/>
+				document.getElementById("mensajeError").style.visibility = "hidden";<br/>
+                password=document.getElementById('password');<br/>
+                password.style.border = '3px solid red';<br/>
+            } catch(e) {<br/>
+            }<br/>
+            return false;<br/>
+        }<br/>
+<br/>
+        fetch('/usuario/login/', {<br/>
+                method: 'POST',<br/>
+                headers: {<br/>
+                    'Content-Type': 'application/x-www-form-urlencoded'<br/>
+                },<br/>
+                body: "u="+loginForm.username.value+"&r="+SHA512(loginForm.challenge.value+loginForm.password.value)<br/>
+            })<br/>
+            .then(function(response) {<br/>
+                return response.text();<br/>
+            })<br/>
+            .then(function(data) {<br/>
+				data = JSON.parse(data);				<br/>
+				if(data.hasOwnProperty("url")){<br/>
+					fetch('/modulos/accesos/insertaAcceso/', {<br/>
+						method: 'POST',<br/>
+						headers: {<br/>
+							'Content-Type': 'application/x-www-form-urlencoded'<br/>
+						},<br/>
+						body: "operacion=Login Correcto"<br/>
+					})<br/>
+					.then(function(response) {<br/>
+						return response.text();<br/>
+					})<br/>
+					.then(function(data) {<br/>
+						console.log(data);<br/>
+					})<br/>
+					.catch(function(err) {<br/>
+						console.error("Error: " + err);<br/>
+					});        <br/>
+					<br/>
+					window.location = data.url; 					<br/>
+				} else {					<br/>
+					document.getElementById("mensajeError").style.visibility = "";     <br/>
+				}<br/>
+            })<br/>
+            .catch(function(err) {<br/>
+                document.getElementById("mensajeError").style.visibility = "";<br/>
+                console.error(err);<br/>
+        });        <br/>
+    }<br/>
+<br/>
+<br/>
+    function cambiarIdioma(idioma) {<br/>
+        var l;<br/>
+        if (typeof idioma=='undefined') {<br/>
+            l=$('#idioma').val();<br/>
+        } else {<br/>
+            l=idioma;<br/>
+        }<br/>
+        idiomaSeleccionado=l;<br/>
+        switch (l) {<br/>
+                            case 'es':<br/>
+                $('#username').attr("placeholder", "Email");<br/>
+                $('#password').attr("placeholder", "Contraseña");<br/>
+				$('#recuperarContraseña').innerText = "Recuperar contraseña";<br/>
+                $("#mensajeError").innerText = "El email o contraseña que has introducido son incorrectos.";<br/>
+                $('#idioma').val('es');<br/>
+                $("#boton").html("Acceder")<br/>
+                break;<br/>
+                            case 'en-GB':<br/>
+                        case 'en':<br/>
+                $('#username').attr("placeholder", "Email");<br/>
+                $('#password').attr("placeholder", "Password");<br/>
+				$('#recuperarContraseña').innerText = "Recuperar contraseña";<br/>
+                $("#mensajeError").innerText = "El email o contraseña que has introducido son incorrectos.";<br/>
+                $('#idioma').val('en');<br/>
+                $("#boton").html("Log in")<br/>
+                break;<br/>
+                            case 'de':<br/>
+                $('#username').attr("placeholder", "");<br/>
+                $('#password').attr("placeholder", "");<br/>
+				$('#recuperarContraseña').innerText = "Recuperar contraseña";<br/>
+                $("#mensajeError").innerText = "El email o contraseña que has introducido son incorrectos.";<br/>
+                $('#idioma').val('de');<br/>
+                $("#boton").html("")<br/>
+                break;<br/>
+                            case 'it':<br/>
+                $('#username').attr("placeholder", "Email");<br/>
+                $('#password').attr("placeholder", "Password");<br/>
+				$('#recuperarContraseña').innerText = "Recuperar contraseña";<br/>
+                $("#mensajeError").innerText = "El email o contraseña que has introducido son incorrectos.";<br/>
+                $('#idioma').val('it');<br/>
+                $("#boton").html("Log in")<br/>
+                break;<br/>
+                            case 'eu':<br/>
+                $('#username').attr("placeholder", "");<br/>
+                $('#password').attr("placeholder", "");<br/>
+				$('#recuperarContraseña').innerText = "Recuperar contraseña";<br/>
+                $("#mensajeError").innerText = "El email o contraseña que has introducido son incorrectos.";<br/>
+                $('#idioma').val('eu');<br/>
+                $("#boton").html("")<br/>
+                break;<br/>
+                            case 'fr':<br/>
+                $('#username').attr("placeholder", "E-mail");<br/>
+                $('#password').attr("placeholder", "Mot de passe");<br/>
+				$('#recuperarContraseña').innerText = "Recuperar contraseña";<br/>
+                $("#mensajeError").innerText = "El email o contraseña que has introducido son incorrectos.";<br/>
+                $('#idioma').val('fr');<br/>
+                $("#boton").html("Accéder")<br/>
+                break;<br/>
+                    default:<br/>
+                if (l.length&gt;2) {<br/>
+                    cambiarIdioma(l.substr(0, 2));<br/>
+                } else {<br/>
+                    cambiarIdioma();<br/>
+                }<br/>
+                break;<br/>
+        }<br/>
+    }<br/>
+	<br/>
+	function onChangeInput(){<br/>
+        username.style.border='';<br/>
+        password.style.border='';<br/>
+        if ((loginForm.username.value == "" && loginForm.password.value != "") || !validateEmail(loginForm.username.value)) {<br/>
+        <br/>
+            document.getElementById("mensajeError").style.visibility = "hidden";<br/>
+            username.style.border = '3px solid red'; <br/>
+            <br/>
+        }<br/>
+    }<br/>
+<br/>
+    $(document).ready(function() {<br/>
+        $("#username").on('change keydown paste input', function(){<br/>
+			loginForm.username.value = loginForm.username.value.trim();<br/>
+            onChangeInput();<br/>
+        });<br/>
+  <br/>
+        $("#password").on('change keydown paste input', function(){<br/>
+            onChangeInput();<br/>
+        });<br/>
+    });<br/>
+&lt;/script&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>
