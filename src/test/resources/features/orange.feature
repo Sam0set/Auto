@@ -8,4 +8,3 @@ Feature: ingresar en pag web
     Given "Usuario" ingresa a Orange
     When coloca usuario y contraseña
     Then  se logea exitosamente
-

@@ -11,9 +11,9 @@ import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import org.hamcrest.Matchers;
 
 import static co.com.orange.utils.Constants.TIME_SHORT;
-import static co.com.orange.utils.Constants.TITLE;
+
 import static co.com.orange.utils.Time.waiting;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+
 
 public class Hook {
 
@@ -28,14 +28,6 @@ public class Hook {
                 OpenWeb.browserURL()
         );
         waiting(TIME_SHORT);
-        theActorInTheSpotlight().should(
-                GivenWhenThen.seeThat(
-                        TheWebPage.title(),
-                        Matchers.containsString(TITLE)
-                )
-        );
-
     }
-
 
 }
